@@ -1,0 +1,161 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Henry Sebastian Remache </title>
+  <meta name="description" content="Henry Sebastian Remache">
+  <meta name="author" content="Henry Sebastian Remache">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link href="css/lightbox.css" rel="stylesheet">
+
+  <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+
+</head>
+
+<body>
+
+	<div class="topbar">
+		<a href="#" class="topbar-mark left"><span class="logo"></span></a>
+		<strong>Henry Sebastian Remache</strong>
+		<a href="mailto:henry2992@hotmail.com" class="btn btn-red right"><span>Contact</span></a>
+	</div>
+
+	 
+
+
+	<div class="main-header" >
+
+		<div class="line"></div>
+		<div class="container">
+			<div class="mark slide-in-mark opacity-0"><div class="inner"><span class="heart"></span></div></div>
+			<div class="text">
+				<h1 class="slide-in-h1 opacity-0">Henry Sebastian Remache</h1>
+				<h2 class="sub slide-in-h2 opacity-0">Digital Product Designer</h2>
+			</div>
+		</div> 
+		<canvas id="canvas"></canvas>
+	</div>
+
+
+	<div class="section-1">
+		<div id="container" style="position: relative; overflow: visible; height: 530px; width: 1140px;">
+			
+			<div class="item width3 card-container card-container-big duo-1 isotope-item" data-category="first" style="margin-top: -70px; position: absolute; left: 0px; top: 0px;">
+				<div id="card" class="card card-tilted-right" data-width="570" data-project="duo" data-maxwidth="1200">
+					<img src="images/aprenderails.png">
+				</div>
+
+			</div>
+			<div class="item width2 isotope-item" data-category="first" style="position: absolute; left: 570px; top: 0px;">
+				<div class="header">
+					<div class="time"><span class="icon icon-time"></span>2011 - Present</div>
+					<h2 class="project">Duolingo</h2>
+				</div>
+
+				<p class="description">I joined Duolingo as the first designer and fifth employee in early 2011 when it was a research project at Carnegie Mellon University and helped it grow from 0 to 15M users and counting.</p>
+
+				<p class="description">As design lead I’ve built the design team of currently 4 designers and designed all aspects of Duolingo’s web application. I am currently finishing a complete redesign and rewrite of Duolingo’s frontend (HTML &amp; CSS).</p>
+				
+				<div class="project-links">
+					<a href="http://duolingo.com" class="btn btn-red"><span>Visit site</span></a>
+				</div>
+
+
+				<a href="images/aprenderails.png" data-lightbox="image-1" data-title="AprendeRails.com"><img src="images/aprenderails.png" style="width: 50px;"></a>
+
+				
+			
+			</div>
+		</div>
+
+
+
+		<div id="container" style="position: relative; overflow: visible; height: 530px; width: 1140px;">
+			
+			
+			<div class="item width2 isotope-item" data-category="first" style="position: absolute; left: 0px; top: 0px;">
+				<div class="header">
+					<div class="time"><span class="icon icon-time"></span>2011 - Present</div>
+					<h2 class="project">Duolingo</h2>
+				</div>
+
+				<p class="description">I joined Duolingo as the first designer and fifth employee in early 2011 when it was a research project at Carnegie Mellon University and helped it grow from 0 to 15M users and counting.</p>
+
+				<p class="description">As design lead I’ve built the design team of currently 4 designers and designed all aspects of Duolingo’s web application. I am currently finishing a complete redesign and rewrite of Duolingo’s frontend (HTML &amp; CSS).</p>
+				
+				<div class="project-links">
+					<a href="http://duolingo.com" class="btn btn-red"><span>Visit site</span></a>
+				</div>
+
+
+				<a href="images/aprenderails.png" data-lightbox="image-1" data-title="AprendeRails.com"><img src="images/aprenderails.png" style="width: 50px;"></a>
+			
+			</div>
+
+			<div class="item width3 card-container card-container-big duo-1 isotope-item" data-category="first" style="margin-top: -70px; position: absolute; right: 0px; top: 0px;">
+				<div id="card" class="card card-tilted-left" data-width="570" data-project="duo" data-maxwidth="1200">
+					<img src="images/aprendemy.png">
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+
+
+	<div class="section-about">
+		<h2 class="about">About</h2>
+		<div class="about-me">
+			I am a UX/UI designer and developer, I graduate of the #1-ranked International Business program at the University of South Carolina and I hold a masters’ degree in software engineering from Loyola University Chicago. I specialize in creating digital products, expert in helping businesses get their messages our clearly, concisely and accurate through technology and design.  When I am not in front of a computer you can find me Reading, running, playing tennis or watch the last show on Netflix.
+			 <a href="mailto:mdefaire@gmail.com">Write me an email</a>
+		</div>
+	</div>
+
+
+	   
+	<script src="js/lightning.js"></script>
+	<script src="js/lightbox.js"></script>
+
+	<script type="text/javascript">
+		$(function(){	
+			$(window).scroll(function() {
+				var scrolltop = $(window).scrollTop();
+				var headerheight = $(".main-header").height();
+				
+				console.log(headerheight);
+				
+				if (headerheight == 420) {
+					if (scrolltop > 322) {
+						$(".topbar").addClass("visible");
+					}
+					if (scrolltop < 322) {
+						$(".topbar").removeClass("visible");
+					}
+				} else {
+					if (scrolltop > 502) {
+						$(".topbar").addClass("visible");
+					}
+					if (scrolltop < 502) {
+						$(".topbar").removeClass("visible");
+					}
+				}		
+				
+			});
+
+		});
+			
+	</script>
+  
+</body>
+
+
+
+</html>
