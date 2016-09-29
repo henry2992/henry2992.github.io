@@ -171,8 +171,20 @@ h5.logo span {
   background-size: contain;
 }
 
+.name-desktop{
+  display: none !important;
+}
+.name-mobile{
+  display: inline-block !important;
+}
 
+.hide-desktop{
+  display: block !important;
+}
 
+.hide-mobile {
+  display: none !important;
+}
 
 /*********** Main Header **********/
 
@@ -657,6 +669,8 @@ h5.logo span {
   .duo-1 {
     height: 450px;
   }
+
+
 }
 
 
@@ -670,9 +684,30 @@ h5.logo span {
   .duo-1 {
     height: 600px;
   }
+
+  .name-desktop{
+    display: inline-block !important;
+  }
+  .name-mobile{
+    display: none !important;
+  }
+
+  
+
 }
 
+@media only screen and (min-width : 600px) {
 
+  .hide-desktop{
+    display: none !important;
+  }
+
+
+  .hide-mobile {
+    display: block !important;
+  }
+
+}
 
 /* Tablets (portrait and landscape) ----------- */
 @media only screen and (min-width : 768px) {
