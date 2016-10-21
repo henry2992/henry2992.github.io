@@ -54,8 +54,7 @@
 
          $.ajax({
              type: "GET",
-             url: "https://superzapatos1.herokuapp.com/services/stores",
-             data: {name: "user", password: "password"},
+             url: "https://superzapatos1.herokuapp.com/services/stores?name=user&password=password",
              success: function(data){
                 $('.result').html(data);
                 alert("got data");
