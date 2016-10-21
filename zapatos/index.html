@@ -6,7 +6,6 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Super Zapatos</title>
-    <link rel="stylesheet" type="text/css" href="css/normalize.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
@@ -39,13 +38,11 @@
             url: "https://superzapatos1.herokuapp.com/stores.json",
             data: { name: "user", password: "password" },  
             success: function(data){
+                $('.result').html(data);
                 alert("got data");
             }
         }); 
-    }
-
-
-
+    });
 
 </script>
     
