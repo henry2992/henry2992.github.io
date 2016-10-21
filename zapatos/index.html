@@ -1,22 +1,54 @@
-<h1>Este es el index de los zatpatos</h1>
+<!DOCTYPE HTML>
 
+<html>
 
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Super Zapatos</title>
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 
+    <link rel="stylesheet" type="text/css" href="fonts/glyphicons-halflings-regular.eot">
+    <link rel="stylesheet" type="text/css" href="fonts/glyphicons-halflings-regular.svg">
+    <link rel="stylesheet" type="text/css" href="fonts/glyphicons-halflings-regular.ttf">
+    <link rel="stylesheet" type="text/css" href="fonts/glyphicons-halflings-regular.woff">
+    <link rel="stylesheet" type="text/css" href="fonts/glyphicons-halflings-regular.woff2">
+
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <script src="js/index.js"></script>
+    
+
+</head>
+
+<body>
 
 <div class="result">
-	
+    
 </div>
 
 
 <script type="text/javascript">
-	
-	$.get( "http://superzapatos1.herokuapp.com/stores", function( data ) {
-	  $( ".result" ).html( data );
-	  alert( "Load was performed." );
-	});
 
-
+    $.get( "https://superzapatos1.herokuapp.com/stores", function( data ) {
+        $( ".result" ).html( data );
+    alert( "Load was performed." );
+});
 
 </script>
+    
+
+    
 
 
+</body>
+
+
+</html>
