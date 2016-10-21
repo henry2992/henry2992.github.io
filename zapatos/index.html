@@ -26,13 +26,17 @@
 <script type="text/javascript">
 
 
+
+
     $(function(){
         
         $.ajax({
             type: "GET",
             dataType: "json",
-            url: "https://superzapatos1.herokuapp.com/services/stores.json",
-            data: { name: "user", password: "password" },  
+            url: "https://superzapatos1.herokuapp.com/services/stores",
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader('Authorization', 'Basic ' + btoa('name:user', 'password:password' ));
+            },
             success: function(data){
                 $('.result').html(data);
                 alert("got data");
@@ -54,7 +58,7 @@
           e.preventDefault();
         });
 
-        $.getJSON('/stores', function(tasks) {
+        $.getJSON('https://superzapatos1.herokuapp.com/services/stores.json', function(tasks) {
           $.each(tasks, function() { addTask(this); });
         });
       });
