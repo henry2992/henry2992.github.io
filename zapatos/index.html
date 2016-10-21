@@ -30,12 +30,15 @@
 
     $(function(){
         
+        console.log('Running BTOA');
+
         $.ajax({
+
             type: "GET",
             dataType: "json",
             url: "https://superzapatos1.herokuapp.com/services/stores",
             beforeSend: function (xhr) {
-                xhr.setRequestHeader('Authorization', 'Basic ' +  btoa('user:password') );
+                xhr.setRequestHeader('Authorization', 'Basic ' +  btoa('user', 'password') );
             },
             success: function(data){
                 $('.result').html(data);
@@ -46,6 +49,9 @@
     });
 
      $(function(){
+
+         console.log('Running Normal');
+
          $.ajax({
              type: "GET",
              url: "https://superzapatos1.herokuapp.com/services/stores",
