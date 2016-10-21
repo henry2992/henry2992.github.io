@@ -28,23 +28,34 @@
 
 
 
+
     $(function(){
         
-        console.log('Running BTOA');
+        console.log('Running Last');
 
         $.ajax({
-
             type: "GET",
-            dataType: "json",
-            url: "https://superzapatos1.herokuapp.com/services/stores",
-            beforeSend: function (xhr) {
-                xhr.setRequestHeader('Authorization', 'Basic ' +  btoa('user', 'password') );
+            xhrFields: {
+                withCredentials: true
             },
-            success: function(data){
-                $('.result').html(data);
-                alert("got data");
+            dataType: "json",
+            contentType: "application/javascript",
+            data: myData,
+            async: false,
+            crossDomain: true,
+            url: "https://superzapatos1.herokuapp.com/services/stores",
+            success: function (jsonData) {
+                console.log(jsonData);
+            },
+            error: function (request, textStatus, errorThrown) {
+                console.log(request.responseText);
+                console.log(textStatus);
+                console.log(errorThrown);
             }
-        }); 
+            name: user,
+            password: password,
+        });
+
    
     });
 
