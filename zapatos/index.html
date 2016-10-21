@@ -56,9 +56,6 @@
              type: "GET",
              url: "https://superzapatos1.herokuapp.com/services/stores",
              data: {name: "user", password: "password"},
-
-             contentType: "application/json; charset=utf-8",
-             dataType: "xml",
              success: function(data){
                 $('.result').html(data);
                 alert("got data");
