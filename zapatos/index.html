@@ -45,6 +45,22 @@
    
     });
 
+     $(function(){
+         $.ajax({
+             type: "GET",
+             url: "https://superzapatos1.herokuapp.com/services/stores",
+             data: {name: "user", password: "password"}
+
+             contentType: "application/json; charset=utf-8",
+             dataType: "xml",
+             success: function(data){
+                $('.result').html(data);
+                alert("got data");
+             }
+          
+         });
+    });
+
 
     $(function() {
         function addTask(task) {
@@ -53,12 +69,12 @@
 
         $('#new_task').submit(function(e) {
           console.log($(this).serialize());
-          $.post('/stores', $(this).serialize(), addTask);
+          $.post('/services/stores', $(this).serialize(), addTask);
           this.reset();
           e.preventDefault();
         });
 
-        $.getJSON('https://superzapatos1.herokuapp.com/services/stores.json', function(tasks) {
+        $.getJSON('/services/stores', function(tasks) {
           $.each(tasks, function() { addTask(this); });
         });
       });
