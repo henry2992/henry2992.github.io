@@ -60,9 +60,10 @@
             url: 'https://superzapatos1.herokuapp.com/services/stores',
             username: 'user',
             password: 'password',
-            headers: {
-                Authorization: library.basicHeader('user', 'password')
-            },
+
+            beforeSend: function(req) {
+                req.setRequestHeader('Authorization', 'Basic ' + btoa('user:password'));
+            }
             success: function (data) {
                 // console.log(jsonData);
                 console.log('lo logre')
