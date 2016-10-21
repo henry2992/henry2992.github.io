@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
     
 
-    <script src="js/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" />
     <script src="js/bootstrap.min.js"></script>
 
     <script src="js/index.js"></script>
@@ -31,31 +31,45 @@
 
     $(function(){
         
-        console.log('Running Last');
+        
+
+       
+        // $.ajax({  
+        //     url: 'https://superzapatos1.herokuapp.com/services/stores',
+        //     name: 'user',
+        //     password: 'password',
+        //     type: 'GET',
+        //     xhrFields: 
+        //     {
+        //         withCredentials: true
+        //     },
+        //     beforeSend: function (xhr) { 
+        //         console.log(xhr);    
+        //         xhr.setRequestHeader('Authorization', 'Basic ' + btoa(name + ":" + 'password'));     
+        //          console.log(xhr); 
+        //     },
+        //     success: function (data) {
+        //         // console.log(jsonData);
+        //         console.log('lo logre')
+        //     },
+        // });
+
 
         $.ajax({
-            type: "GET",
-            xhrFields: {
-                withCredentials: true
+             type: 'GET',
+            url: 'https://superzapatos1.herokuapp.com/services/stores',
+            username: 'user',
+            password: 'password',
+            headers: {
+                Authorization: library.basicHeader('user', 'password')
             },
-            dataType: "json",
-            contentType: "application/javascript",
-            data: myData,
-            async: false,
-            crossDomain: true,
-            url: "https://superzapatos1.herokuapp.com/services/stores",
-            success: function (jsonData) {
-                console.log(jsonData);
+            success: function (data) {
+                // console.log(jsonData);
                 console.log('lo logre')
             },
-            error: function (request, textStatus, errorThrown) {
-                console.log(request.responseText);
-                console.log(textStatus);
-                console.log(errorThrown);
-            },
-            name: user,
-            password: password,
         });
+
+        console.log('Running Last');
 
    
     });
