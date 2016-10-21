@@ -60,38 +60,8 @@
    
     });
 
-     $(function(){
-
-         console.log('Running Normal');
-
-         $.ajax({
-             type: "GET",
-             url: "https://superzapatos1.herokuapp.com/services/stores?name=user&password=password",
-             success: function(data){
-                $('.result').html(data);
-                alert("got data");
-             }
-          
-         });
-    });
 
 
-    $(function() {
-        function addTask(task) {
-          $('#tasks').append('<li>' + task.name + "   Descripcion:" + task.address +'</ul>');
-        }
-
-        $('#new_task').submit(function(e) {
-          console.log($(this).serialize());
-          $.post('/services/stores', $(this).serialize(), addTask);
-          this.reset();
-          e.preventDefault();
-        });
-
-        $.getJSON('/services/stores', function(tasks) {
-          $.each(tasks, function() { addTask(this); });
-        });
-      });
 
 </script>
     
