@@ -23,28 +23,61 @@
 
 <body>
 
-<div class="result">
-    
-</div>
-
-
 <script type="text/javascript">
 
 
-    (function($){
+    $(function(){
+        
         $.ajax({
             type: "GET",
             dataType: "json",
-            url: "https://superzapatos1.herokuapp.com/stores.json",
+            url: "https://superzapatos1.herokuapp.com/services/stores.json",
             data: { name: "user", password: "password" },  
             success: function(data){
                 $('.result').html(data);
-                alert(data);
+                alert("got data");
             }
         }); 
+   
     });
 
+
+    $(function() {
+        function addTask(task) {
+          $('#tasks').append('<li>' + task.name + "   Descripcion:" + task.address +'</ul>');
+        }
+
+        $('#new_task').submit(function(e) {
+          console.log($(this).serialize());
+          $.post('/stores', $(this).serialize(), addTask);
+          this.reset();
+          e.preventDefault();
+        });
+
+        $.getJSON('/stores', function(tasks) {
+          $.each(tasks, function() { addTask(this); });
+        });
+      });
+
 </script>
+    
+
+    <div id="container">
+      
+      <h1>Create Store</h1>
+
+      <form id="new_task">
+        <input type="integer" name="store[id]" hidden>
+        <input type="text" name="store[name]" id="store_name">
+        <input type="text" name="store[address]" id="store_address">
+        <input type="submit" value="Add">
+      </form>
+
+
+      <ul id="tasks"></ul>
+    </div>
+
+
     
 
     
