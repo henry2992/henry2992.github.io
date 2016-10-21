@@ -35,7 +35,7 @@
             dataType: "json",
             url: "https://superzapatos1.herokuapp.com/services/stores",
             beforeSend: function (xhr) {
-                xhr.setRequestHeader('Authorization', 'Basic ' + btoa('name:user', 'password:password' ));
+                xhr.setRequestHeader('Authorization', 'Basic ' +  btoa('user:password') );
             },
             success: function(data){
                 $('.result').html(data);
