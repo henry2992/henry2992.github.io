@@ -1,0 +1,157 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Super Zapatos</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    
+
+</head>
+
+<body>
+
+    <h1>Aqui estan los articles</h1>
+
+
+
+
+
+    <script type="text/javascript">
+
+
+        $(function() {
+
+
+            // Get Articles
+            $.ajax({
+                type: 'GET',
+                url: 'https://superzapatos1.herokuapp.com/services/stores',
+                username: 'user',
+                password: 'password',
+
+                beforeSend: function(req) {
+                    req.setRequestHeader('Authorization', 'Basic ' + btoa('user:password'));
+                },
+                success: function (data) {
+                    change_select(data); 
+                },
+            });
+
+            function change_select(data) {
+                var stores = data;
+                var options = [];
+                $.each( stores , function( index, value ) {
+                  options = value['name']
+
+                  var option = $('<option></option>').attr("value", value['id']).text(value['name']);
+                   $("#article_store_id").append(option);
+                });
+            };
+
+
+            $('#newArticle').submit(function(e) {
+              console.log($(this).serialize());
+              $.post('https://superzapatos1.herokuapp.com/services/articles', $(this).serialize());
+              this.reset();
+              e.preventDefault();
+            });
+
+
+
+           
+
+          });
+
+    </script>
+    
+
+    <div id="container">
+      
+      <h1>Article</h1>
+
+      <form id="newArticle">
+
+        <input type="integer" name="article[id]" hidden>
+        <br>
+        <input type="text" name="article[name]" id="article_name">
+        <br>
+        <input type="text" name="article[description]" id="article_description">
+        <br>
+        <input type="text" name="article[total_in_shelf]" id="article_total_in_shelf">
+        <br>
+        <input type="text" name="article[total_in_vault]" id="article_total_in_vault">
+        <br>
+
+        <select id="article_store_id" name="article[store_id]">
+
+        </select>
+        <br>
+        <input type="submit" value="Add">
+      
+      </form>
+
+
+      <ul id="tasks"></ul>
+
+
+    </div>
+
+
+
+</body>
+
+<script type="text/javascript">
+
+    function check() {
+        
+    }    
+
+    $(function() {
+
+        $.getJSON("/services/stores", function(response, status, xhr) {
+            if (status == "success") {
+
+                // console.log(response);
+
+                change_select(response);
+                // $("#temp").html(json.t + "&deg;");
+                // $("#pressure").html(json.p + " mm hg");
+            }
+            if (status == "error") {
+                $("#temp").html("error");
+            }
+        });
+
+
+
+        function change_select(data) {
+            
+            var stores = data;
+
+            var options = [];
+
+            $.each( stores , function( index, value ) {
+              options = value['name']
+
+              var option = $('<option></option>').attr("value", value['id']).text(value['name']);
+               $("#article_store_id").append(option);
+            });
+        };
+    });
+
+
+</script>
+
+
+
+
+</html>

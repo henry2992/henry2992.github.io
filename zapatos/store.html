@@ -9,24 +9,29 @@
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <!-- Custom CSS -->
-    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <!-- <link rel="stylesheet" type="text/css" href="css/main.css"> -->
     
 
 </head>
 
 <body>
 
+
 <script type="text/javascript">
 
 
     $(function(){
         
+
+        // Get Store Information
         $.ajax({
-             type: 'GET',
-            url: 'https://superzapatos1.herokuapp.com/services/stores',
+            type: 'GET',
+            url: 'https://superzapatos1.herokuapp.com/services/articles/stores/1',
             username: 'user',
             password: 'password',
 
@@ -34,40 +39,43 @@
                 req.setRequestHeader('Authorization', 'Basic ' + btoa('user:password'));
             },
             success: function (data) {
-               
+                
+
+
                 $.each(data, function() { 
-                   
-                    addStore(this); 
+                    addArticle(this); 
                 });
+
+
             },
         });
 
-        function addStore(store) {
-        console.log(store.name); 
-          $('#stores').append('<li>' + store.name +  '<br>'  + " Descripcion:"  + store.address +'</ul>' + '<a id="storeID" rel="' + '1'+ '"' + '>Go to Store</a>' );
-
-           $("#storeID").attr("href", "store/index.html")
-
+        function showStore(store){
+            // console.log(store);
+            $('#storeInfo').append( '<h3>' + store.name + '</h3>' + '<p>' + store.address + '</p>');
         }
 
+        function addArticle(article){
+            // console.log(store);
+            $('#storeArticles').append('<li>' + article.name +  '<br>'  + " Descripcion:"  + article.description + '<br>' + article.store.name +'</li>' );
+        }
+        // get Articles information
+     
+
     });
-
-
-
 </script>
+
+        <h1>Store Information</h1>
     
+        <div id="storeInfo">
+        </div>
 
-    <div id="container">
-      
-      <h1>List of all Stores</h1>
+        <div>
+            <ul id='storeArticles'>
+            </ul>
+        </div>
 
-
-      <ul id="stores">
-          
-      </ul>
-    
-
-    </div>
+        
 </body>
 
 
